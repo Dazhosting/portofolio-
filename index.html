@@ -3,272 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vercel Team Project</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Vercel Team Project - Upgraded</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- AOS (Animate On Scroll) Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
-        /* PENGATURAN DASAR & FONT */
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
+        /* Custom styles to extend Tailwind */
+        html {
             scroll-behavior: smooth;
         }
-
-        h1, h2, h3 {
-            font-weight: 600;
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc; /* light gray background */
+            color: #1e293b; /* slate-800 */
         }
-
-        /* NAVIGASI */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 5%;
-            background-color: #ffffff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+        /* Custom gradient for hero section */
+        .hero-gradient {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
         }
-
-        nav .nav-brand {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #333;
+        /* Custom shadow for cards */
+        .custom-shadow {
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -4px rgb(0 0 0 / 0.1);
         }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-            margin: 0;
+        .custom-shadow-hover:hover {
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #555;
-            font-weight: 600;
-            transition: color 0.3s;
+        /* Styling for the scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
-
-        nav ul li a:hover {
-            color: #007BFF;
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
         }
-
-        /* BAGIAN UTAMA / HERO */
-        .hero {
-            text-align: center;
-            padding: 100px 20px;
-            background-color: #ffffff;
+        ::-webkit-scrollbar-thumb {
+            background: #8b5cf6;
+            border-radius: 10px;
         }
-
-        .profile-photo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid #007BFF;
-            margin-bottom: 1rem;
-        }
-
-        .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .hero .subtitle {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 2rem;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: #007BFF;
-            color: #ffffff;
-            padding: 12px 24px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s;
-        }
-
-        .cta-button:hover {
-            background-color: #0056b3;
-        }
-
-        /* SECTIONS */
-        main section {
-            padding: 60px 5%;
-            max-width: 960px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        section h2 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            position: relative;
-        }
-
-        /* Garis bawah judul */
-        section h2::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: #007BFF;
-            margin: 8px auto 0;
-            border-radius: 2px;
-        }
-
-        .about-section p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* GRID PROYEK */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .project-card {
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            overflow: hidden;
-            text-align: left;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
-        }
-
-        .project-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .project-card h3 {
-            padding: 1rem 1.5rem 0 1.5rem;
-            margin: 0;
-        }
-
-        .project-card p {
-            padding: 0.5rem 1.5rem 1.5rem 1.5rem;
-            line-height: 1.5;
-        }
-
-        .project-link {
-            display: inline-block;
-            margin: 0 1.5rem 1.5rem 1.5rem;
-            text-decoration: none;
-            color: #007BFF;
-            font-weight: 600;
-        }
-
-        /* KONTAK & FOOTER */
-        .contact-section {
-            background-color: #ffffff;
-        }
-
-        footer {
-            text-align: center;
-            padding: 1.5rem;
-            background-color: #333;
-            color: #f4f4f4;
-        }
-
-        /* RESPONSIVE DESIGN UNTUK HP */
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6d28d9;
         }
     </style>
 </head>
-<body>
+<body class="antialiased">
 
-    <nav>
-        <div class="nav-brand">Vercel Team</div>
-        <ul>
-            <li><a href="#about">Tentang Saya</a></li>
-            <li><a href="#projects">Proyek</a></li>
-            <li><a href="#contact">Kontak</a></li>
-        </ul>
+    <!-- Welcome Popup Modal -->
+    <div id="welcome-modal" class="fixed inset-0 bg-black bg-opacity-60 z-50 flex justify-center items-center p-4 transition-opacity duration-300 opacity-0">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-md mx-auto transform scale-95 transition-transform duration-300 p-8 text-center" data-aos="fade-up" data-aos-delay="200">
+            <img src="https://ar-hosting.pages.dev/1751679958097.jpg" alt="Logo Vercel Team" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-blue-500">
+            <h2 class="text-2xl font-bold text-slate-800 mb-2">Selamat Datang!</h2>
+            <p class="text-slate-600 mb-6">Terima kasih telah mengunjungi situs Vercel Team. Jelajahi proyek dan modul terbaru dari kami.</p>
+            <button id="close-modal" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl">
+                Mulai Jelajahi
+            </button>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white/80 backdrop-blur-lg shadow-md sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-extrabold text-slate-800">Vercel Team</a>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#about" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-md font-medium transition-colors">Tentang</a>
+                        <a href="#projects" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-md font-medium transition-colors">Proyek</a>
+                        <a href="#module" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-md font-medium transition-colors">Module</a>
+                        <a href="#contact" class="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-full text-md font-medium transition-all duration-300 shadow-md">Hubungi Kami</a>
+                    </div>
+                </div>
+                 <!-- Mobile Menu Button -->
+                <div class="-mr-2 flex md:hidden">
+                    <button id="mobile-menu-button" type="button" class="bg-gray-200 inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-gray-800 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-200 focus:ring-white">
+                        <span class="sr-only">Open main menu</span>
+                        <i id="menu-icon" class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+         <!-- Mobile Menu, show/hide based on menu state. -->
+        <div class="md:hidden hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Tentang</a>
+                <a href="#projects" class="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Proyek</a>
+                <a href="#module" class="text-gray-600 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Module</a>
+                <a href="#contact" class="text-white bg-blue-600 hover:bg-blue-700 block px-3 py-2 rounded-md text-base font-medium">Hubungi Kami</a>
+            </div>
+        </div>
     </nav>
 
-    <header class="hero">
-        <img src="https://ar-hosting.pages.dev/1751679958097.jpg" alt="Logo Vercel Team" class="profile-photo">
-        <h1>Halo, saya Dari Team Vercel</h1>
-        <p class="subtitle">Pembuatan Project</p>
-        <a href="#projects" class="cta-button">Project Vercel Team</a>
+    <!-- Hero Section -->
+    <header class="hero-gradient text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 text-center">
+            <div data-aos="fade-down">
+                <img src="https://ar-hosting.pages.dev/1751679958097.jpg" alt="Logo Vercel Team" class="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full object-cover border-8 border-white/50 shadow-2xl mb-6">
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight mb-2">Halo, kami dari Vercel Team</h1>
+                <p class="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto">Menciptakan Proyek & Module Bermanfaat untuk Komunitas.</p>
+            </div>
+            <div class="mt-10" data-aos="fade-up" data-aos-delay="200">
+                <a href="#projects" class="bg-white text-blue-600 font-bold py-3 px-8 rounded-full text-lg transition-transform duration-300 hover:scale-105 shadow-xl">Lihat Proyek Kami</a>
+            </div>
+        </div>
     </header>
 
     <main>
-        <section id="about" class="about-section">
-            <h2>Tentang Saya</h2>
-            <p>
-                Hello, I'm from the Vercel Community Team. We only create projects or modules, etc. that we share on our WhatsApp channel. We only create useful websites, but when it comes to selling, it's 100% free.
-            </p>
+        <!-- About Section -->
+        <section id="about" class="py-20 lg:py-28">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" data-aos="fade-up">Tentang Kami</h2>
+                <div class="w-24 h-1.5 bg-blue-600 mx-auto mb-12" data-aos="fade-up" data-aos-delay="100"></div>
+                <p class="text-lg text-slate-600 leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+                    Hello, I'm from the Vercel Community Team. We only create projects or modules, etc. that we share on our WhatsApp channel. We only create useful websites, but when it comes to selling, it's 100% free.
+                </p>
+            </div>
         </section>
 
-        <section id="projects" class="projects-section">
-            <h2>Proyek Saya</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <img src="https://ar-hosting.pages.dev/1751703157845.jpg" alt="Gambar Proyek 1">
-                    <h3>Ai Geberator Puisi</h3>
-                    <p>Membuat Puisi Denggan Imajinasi Kalian Bisa Pilih Bahasa indonesia Atau Inggris Dan Bisa Membuat puisi panjang atau pendek</p>
-                    <a href="https://aigeneratorpuisi.vercel.app/" class="project-link" target="#">Lihat Detail</a>
+        <!-- Projects Section -->
+        <section id="projects" class="bg-white py-20 lg:py-28">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4" data-aos="fade-up">Proyek Unggulan</h2>
+                    <div class="w-24 h-1.5 bg-blue-600 mx-auto mb-12" data-aos="fade-up" data-aos-delay="100"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Card 1 -->
+                    <div class="bg-white rounded-xl overflow-hidden custom-shadow custom-shadow-hover transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                        <img class="w-full h-56 object-cover" src="https://ar-hosting.pages.dev/1751703157845.jpg" alt="Gambar Proyek Ai Generator Puisi">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Ai Generator Puisi</h3>
+                            <p class="text-slate-600 mb-4">Membuat Puisi dengan imajinasi Anda. Bisa pilih Bahasa Indonesia atau Inggris dan bisa membuat puisi panjang atau pendek.</p>
+                            <a href="https://aigeneratorpuisi.vercel.app/" target="_blank" class="font-semibold text-blue-600 hover:text-blue-800 transition-colors">Lihat Detail <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                    <!-- Add more project cards here if needed -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Module Section -->
+        <section id="module" class="py-20 lg:py-28">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="zoom-in">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Module Vercel Team</h2>
+                <div class="w-24 h-1.5 bg-blue-600 mx-auto mb-12"></div>
+                <div class="bg-white rounded-xl p-8 custom-shadow text-left">
+                     <p class="text-center text-lg mb-6">
+                        Versi saat ini: <strong class="bg-blue-100 text-blue-800 py-1 px-3 rounded-full">"vrclteam-module": "^1.0.4"</strong>
+                    </p>
+                    <h3 class="text-2xl font-bold mb-4 text-slate-700"><i class="fas fa-history mr-2"></i>Riwayat Versi</h3>
+                    <ul class="space-y-3 text-slate-600">
+                        <li class="flex items-start"><span class="bg-green-500 text-white rounded-full w-6 h-6 text-xs font-bold flex items-center justify-center mr-3 mt-1 flex-shrink-0">✓</span><strong>1.0.4 (Terbaru):</strong> Perbaikan Dan Update Sistem Module.</li>
+                        <li class="flex items-start"><span class="bg-gray-400 text-white rounded-full w-6 h-6 text-xs font-bold flex items-center justify-center mr-3 mt-1 flex-shrink-0">✓</span><strong>1.0.3:</strong> Menambahkan Module Yang Di Butuhkan.</li>
+                        <li class="flex items-start"><span class="bg-gray-400 text-white rounded-full w-6 h-6 text-xs font-bold flex items-center justify-center mr-3 mt-1 flex-shrink-0">✓</span><strong>1.0.2:</strong> Penambahan fitur Bantuan --help : vrclteam --help.</li>
+                        <li class="flex items-start"><span class="bg-gray-400 text-white rounded-full w-6 h-6 text-xs font-bold flex items-center justify-center mr-3 mt-1 flex-shrink-0">✓</span><strong>1.0.1:</strong> Perbaikan Dalam File Module.</li>
+                        <li class="flex items-start"><span class="bg-gray-400 text-white rounded-full w-6 h-6 text-xs font-bold flex items-center justify-center mr-3 mt-1 flex-shrink-0">✓</span><strong>1.0.0:</strong> Perilisan Module.</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
-        <section id="module" class="module-section">
-        <div class="module-card">
-            <h2>Module Vercel Team</h2>
-            <p>
-                Versi saat ini: <strong>"vrclteam-module": "^1.0.4"</strong>
-            </p>
-
-            <hr> <h3>Riwayat Versi 📜</h3>
-            <ul>
-                <li><strong>1.0.4 (Terbaru):</strong> Perbaikan Dan Update Sistem Module.</li>
-                <li><strong>1.0.3:</strong> Menambahkan Module Yang Di Butuh Kan.</li>
-                <li><strong>1.0.2:</strong> Pernambahan fitur Bantuan --help : vrclteam --help.</li>
-                <li><strong>1.0.1:</strong> Perbaikan Dalam File Module.</li>
-                <li><strong>1.0.0:</strong> Perilisan Module.</li>
-            </ul>
-        </div>
-    </section>
-        
-        <section id="contact" class="contact-section">
-            <h2>Hubungi Owner</h2>
-            <p>#?</p>
-            <a href="#" class="cta-button">Kirim Email</a>
+        <!-- Contact Section -->
+        <section id="contact" class="bg-white py-20 lg:py-28">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" data-aos="fade-up">Hubungi Owner</h2>
+                <div class="w-24 h-1.5 bg-blue-600 mx-auto mb-8" data-aos="fade-up" data-aos-delay="100"></div>
+                <p class="text-lg text-slate-600 mb-8" data-aos="fade-up" data-aos-delay="200">Punya pertanyaan atau ide proyek? Jangan ragu untuk menghubungi kami!</p>
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <a href="mailto:contact.vercelteam@gmail.com" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform duration-300 hover:scale-105 shadow-xl inline-block">
+                       <i class="fas fa-envelope mr-2"></i> Kirim Email
+                    </a>
+                </div>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2025 - Vercel Team.</p>
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-slate-400">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; <span id="year"></span> - Vercel Team. All Rights Reserved.</p>
+        </div>
     </footer>
 
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6281234567890?text=Halo%20Vercel%20Team,%20saya%20tertarik%20dengan%20proyek%20Anda." target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg transform hover:scale-110 transition-transform duration-300 z-30">
+        <i class="fab fa-whatsapp text-4xl"></i>
+    </a>
+
+    <!-- AOS (Animate On Scroll) Library JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: false, 
+        });
+
+        // Welcome Modal Logic
+        const welcomeModal = document.getElementById('welcome-modal');
+        const closeModalButton = document.getElementById('close-modal');
+        
+        window.addEventListener('load', () => {
+            // Delay modal appearance slightly for better UX
+            setTimeout(() => {
+                welcomeModal.classList.remove('opacity-0');
+                welcomeModal.querySelector('div').classList.remove('scale-95');
+            }, 500);
+        });
+
+        const closeModal = () => {
+            welcomeModal.classList.add('opacity-0');
+            setTimeout(() => {
+                welcomeModal.style.display = 'none';
+            }, 300);
+        }
+
+        closeModalButton.addEventListener('click', closeModal);
+        welcomeModal.addEventListener('click', (e) => {
+            if (e.target === welcomeModal) {
+                closeModal();
+            }
+        });
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Mobile Menu Logic
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuButton.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.toggle('hidden');
+            // Change icon based on menu state
+            if (isHidden) {
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            } else {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+            }
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+    </script>
+
 </body>
-  </html>
+    </html>
+                                                           
